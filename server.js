@@ -10,15 +10,17 @@ const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
 // GLOBAL VARIABLES
-const db = knex({
-	client: 'pg',
-	connection: {
-		host : '127.0.0.1',
-		user : 'postgres',
-		password : 'nyancat01',
-		database : 'smart-brain'
-	}
-});
+// const db = knex({
+// 	client: 'pg',
+// 	connection: {
+// 		host : '127.0.0.1',
+// 		user : 'postgres',
+// 		password : 'nyancat01',
+// 		database : 'smart-brain'
+// 	}
+// });
+
+const db = {};
 
 const app = express();
 
