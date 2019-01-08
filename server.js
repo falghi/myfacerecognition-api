@@ -9,7 +9,7 @@ const register = require('./controllers/register');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
-GLOBAL VARIABLES
+// GLOBAL VARIABLES
 const db = knex({
 	client: 'pg',
 	connection: {
