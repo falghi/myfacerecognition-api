@@ -12,6 +12,9 @@ const handleRegister = (db, bcrypt) => async (req, resp) => {
 
 		checkData(name, email, password);
 
+		if ((await db('login').where('email', email)).length >= 1)
+			throw new Error('Email already exists');
+
 		await db.transaction(async trx => {
 			try {
 				await trx('login')
@@ -27,9 +30,6 @@ const handleRegister = (db, bcrypt) => async (req, resp) => {
 					joined: new Date()
 				})
 				.returning('*');
-
-				if (user.length === 0)
-					throw new Error('Email already exists');
 
 				await trx.commit();
 				resp.json(user[0]);
