@@ -10,10 +10,10 @@ const handleRegister = (db, bcrypt) => async (req, resp) => {
 			});
 		});
 
-		checkData(name, email, password);
-
 		if ((await db('login').where('email', email)).length >= 1)
 			throw new Error('Email already exists');
+
+		checkData(name, email, password);
 
 		await db.transaction(async trx => {
 			try {
