@@ -18,8 +18,13 @@ const handleImage = (db) => async (req, resp) => {
 
 		if (entries.length === 0)
 			resp.status(400).json('invalid user id');
-		else
-			resp.json({ clarifai: response, count: Number(entries[0]) });
+		else {
+			const count = Number(entries[0]);
+			resp.json({
+				clarifai: response,
+				count: count
+			});
+		}
 	} catch(err) {
 		resp.status(400).json('error');
 	}

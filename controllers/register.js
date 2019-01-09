@@ -49,7 +49,7 @@ const checkData = (name, email, password) => {
 		error += 'Invalid Name\n';
 	if (!(0 < email.lastIndexOf('@') && email.lastIndexOf('@') + 1 < email.lastIndexOf('.') && email.lastIndexOf('.') + 1 < email.length))
 		error += 'Invalid Email Address\n';
-	if (password.length < 10 || password.length > 30)
+	if (password.length < 8 || password.length > 30)
 		error += 'Invalid Password\n';
 	if (error !== '')
 		throw new Error(error.slice(0, error.length - 1));
