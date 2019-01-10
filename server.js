@@ -9,6 +9,7 @@ const register = require('./controllers/register');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 const rank = require('./controllers/rank');
+const leaderboard = require('./controllers/leaderboard');
 
 // GLOBAL VARIABLES
 const db = knex({
@@ -44,6 +45,7 @@ app.post('/register', register.handleRegister(db, bcrypt));
 app.post('/rank', rank.handleRank(db));
 app.get('/profile/:id', profile.handleProfile(db));
 app.put('/image', image.handleImage(db));
+app.post('/leaderboard', leaderboard.handleLeaderboard(db));
 // --
 
 // START SERVER
